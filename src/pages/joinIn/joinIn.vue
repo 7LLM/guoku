@@ -1,5 +1,7 @@
 <template>
-	
+	<div>
+		joinIn
+	</div>
 </template>
 
 <script>
