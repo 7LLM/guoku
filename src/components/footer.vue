@@ -86,8 +86,8 @@
 	.footerWarp {
 		width: 100%;
 		padding-bottom: 20px;
-		position: fixed;
-		bottom: 0;
+		/*position: fixed;
+		bottom: 0;*/
 		.Flogo {
 			width: 100%;
 			img {
