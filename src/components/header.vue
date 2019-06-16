@@ -70,6 +70,8 @@
 	.headWarp {
 		width: 100%;
 		position: fixed;top: 0;
+		background: #fff;
+		z-index: 555;
 		.header {
 			border-bottom: 1px solid #ccc;
 			height: 30px;

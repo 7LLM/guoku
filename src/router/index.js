@@ -5,7 +5,7 @@ import JoinIn from '@/pages/joinIn/joinIn'
 import Mall from '@/pages/mall/mall'
 import Shoppcar from '@/pages/mall/shoppcar'
 import Reset from '@/pages/Reset/resets'
-
+import Datatil from '@/components/datail'
 
 Vue.use(Router)
 
@@ -20,7 +20,8 @@ export default new Router({
     {path:"/resets",component:Reset},
     {path:"/home",name:"Home",component:Home},
     {path:"/joinIn",name:"JoinIn",component:JoinIn},
-    {path:"/Mall",name:"Mall",component:Mall}
+    {path:"/Mall",name:"Mall",component:Mall},
+     {path:"/datail",name:"Mall",component:Datatil}
     
 
   ]
