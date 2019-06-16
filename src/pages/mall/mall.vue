@@ -38,7 +38,20 @@
 				<a href="#"><img src="../../assets/mallImg/index_ad3.jpg"/></a>
 			</div>
 		</section>
-		<FruitsModel></FruitsModel>
+		<!--产品模块-->
+		<section class="produList">
+			<div class="produ_title">
+				<div> <span>>> 专利分格</span></div>
+				<ul class="subtitle">
+					<li><a href="#">专利分格</a></li>
+					<li><a href="#">专利分格</a></li>
+					<li><a href="#">专利分格</a></li>
+					<li><a href="#">专利分格</a></li>
+					<li><a href="#">专利分格</a></li>
+				</ul>
+			</div>
+			<FruitsModel></FruitsModel>
+		</section>
 		<!--底部-->
 		<Footer></Footer>
 	</div>
@@ -65,7 +78,7 @@
 	/*导航区*/
 	.nav2{
 		margin-top: 122px;
-		padding-left: 100px;
+		padding-left: 220px;
 		width: 100%;
 		height: 35px;
 		line-height: 35px;
@@ -105,6 +118,42 @@
 			a{
 				display: inline-block;
 				margin-right: 5px;
+			}
+		}
+	}
+	/*产品列表模块*/
+	.produList{
+		width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.produ_title{
+		height: 35px;
+		line-height: 35px;
+		border-bottom: 3px solid #E51E13;
+		>div{
+			float: left;
+			&::before{
+				content: '';
+				display: inline-block;
+				clear: both;
+				width: 35px;
+				height: 35px;
+				background: url(../../assets/logo/icon_goods_1.png) no-repeat;
+			}
+			span{
+				position: relative;
+    			bottom: 11px;
+    			color: #616161;
+			}
+		}
+		.subtitle{
+			overflow: hidden;
+			float: left;
+			margin-left: 25%;
+			li{
+				float: left;
+				margin-right: 10px;
 			}
 		}
 	}

@@ -6,14 +6,17 @@
 			<div class="head_nav">
 				<img src="../../assets/homeImg/s_03.png" />
 				<ul>
-					<li @click="toHome()">
-						<a href="#">首页</a>
+					<li>
+						<!--<a href="#">首页</a>-->
+						<router-link to="/home">首页</router-link>
 					</li>
-					<li @click="toMall()">
-						<a href="#">会员商城</a>
+					<li>
+						<!--<a href="#">会员商城</a>-->
+						<router-link to="/mall">会员商城</router-link>
 					</li>
-					<li  @click="toJoinIn()">
-						<a href="#">招商加盟</a>
+					<li>
+						<!--<a href="#">招商加盟</a>-->
+						<router-link to="/joinIn">招商加盟</router-link>
 					</li>
 				</ul>
 			</div>
@@ -179,18 +182,6 @@
 	export default {
 		components: {
 			Banner,Footer
-		},
-		methods:{
-			//能实现跳转，但URL地址没有改变，后退不有道当页不能返回上一页
-			toHome(){
-				this.$router.push({name:"Home"})
-			},
-			toMall(){
-				this.$router.push({name:"Mall"})
-			},
-			toJoinIn(){
-				this.$router.push({name:"JoinIn"})
-			}
 		}
 	}
 </script>
