@@ -5,6 +5,7 @@ import Home from '@/pages/home/home'
 import JoinIn from '@/pages/joinIn/joinIn'
 import Mall from '@/pages/mall/mall'
 import Shoppcar from '@/pages/mall/shoppcar'
+import Reset from '@/pages/Reset/resets'
 Vue.use(Router)
 
 export default new Router({
@@ -17,7 +18,7 @@ export default new Router({
     {path:"/home",component:Home},
     {path:"/joinIn",component:JoinIn},
     {path:"/Mall",component:Mall},
-    {path:"/shoppcar",component:Shoppcar}
-    
+    {path:"/shoppcar",component:Shoppcar},
+    {path:"/resets",component:Reset}
   ]
 })

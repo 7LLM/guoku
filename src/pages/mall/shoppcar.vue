@@ -28,7 +28,7 @@
 					<div class="S_center_second">
 						<form><input type="checkbox" name="" id="" value="全选" /></form>
 						<div class="s_Msg">
-							<a href="#"><img src="../../assets/homeImg/huifruits_21.jpg"/></a>
+							<!--<a href="#"><img src="../../assets/homeImg/huifruits_21.jpg"/></a>-->
 							<p><a href="#">万圣节主题手工鲜榨果汁</a></p>
 						</div>
 						<p>25.00</p>
