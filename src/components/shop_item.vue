@@ -51,8 +51,8 @@
 	.shop_item{
 		margin-top: 140px;
 		background: red;
-		height: 30px;
-		line-height: 30px;
+		height: 40px;
+		line-height: 40px;
 	}
 	.item{
 		display: flex;
@@ -62,15 +62,17 @@
 		
 	}
 	.list>li:hover{
-		background: greenyellow;
+		background: #eb9621;
+	
 	}
 	h3{
-		margin-right: 80px;
+		margin-right:80px;
 		color: #fff;
 	}
 	.list>li{
 		width: 80px;
 		text-align: center;
+		
 	}
 	a{
 		color: #fff;

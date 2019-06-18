@@ -3,54 +3,84 @@
 		<Header></Header>
 		<Shop_item ></Shop_item>
 		<div class="bjc">
-			<div id="form">
-				<h2>用户注册</h2>
-				<ul>
-					<li>
-						<span>*</span>
-						<label>手机号:</label>
-						<input type="text"/>
-					</li>
-					<li>
-						<span>*</span>
-						<label>手机号:</label>
-						<input type=""/>
-					</li>
-					<li>
-						<span>*</span>
-						<label>手机验证:</label>
-						<input type="text"/>
-						<input class="btn" type="button" :value="value" />
-					</li>
-				</ul>
-				<p>
-					<input class="check" type="checkbox" />我已阅读并同意
-					<span>《果酷用户注册协议》</span>	
-				</p>
-				<p style="text-indent: 20px;">
-					已经是果酷会员？<span>立即登录</span>
-				</p>
-				<p>
-					<button class="button">立即注册</button>
-				</p>
+			<ul>
+				<li class="list">
+					<label><span>*</span>手机号：</label>
+					<input type="text" v-model="iphone" @click="focus"/>
+				</li>
+				<li style="line-height: 0;">
+					<p class="tis"  v-show="isShow">{{tishi}}</p>
+				</li>
 				
-			</div>
+				<li class="list" style="display: flex;">
+					<label><span>*</span>滑动验证：</label>
+					<Huadon></Huadon>
+				</li>
+				<li class="list">
+					<label><span>*</span>手机验证：</label>
+					<input style="width: 100px;margin-right: 10px;"/>
+					<button class="btn" @click="time">{{value}}</button>
+				</li>
+				<li>
+					<input type="checkbox" style="margin-right: 5px;"/>我已阅读并同意<span class="cl">《果酷用户注册协议》</span>
+					<p style="margin-left: 20px;">已经是果酷会员？<a href="#" class="cl">立即登录</a></p>
+				</li>
+				<li>
+					<button class="bt" @click="reset">立即注册</button>
+				</li>
+			</ul>
 			
 		</div>
 		<Footer></Footer>
+		
 	</div>
 </template>
 <script>
 	import	Footer from "../../components/footer"
 	import	Header from "../../components/header"
 	import	Shop_item from "../../components/shop_item"
+	import	Huadon from "../../components/huadon"
 	export default{
 		components:{
-			Footer,Header,Shop_item 
+			Footer,Header,Shop_item ,Huadon
 		},
 		data(){
 			return{
-				value:"获取短信验证码"
+				value:"获取短信验证码",
+				iphone:"请输入手机号",
+				tishi:"手机号输入错误",
+				isShow:false,
+				num:60,
+				timer:null,
+				show:true
+			}
+		},
+		methods:{
+			reset(){
+				var reg =new RegExp(/^13[5789][0-9]{8}$/)
+				if(reg.test(this.iphone)){
+					this.isShow=false
+				}else{
+					this.isShow=true
+				}
+			},
+			focus(){
+				this.iphone=""
+			},
+			time(){
+				if(this.show){
+					this.timer=setInterval(()=>{
+					this.show=false
+					this.value=this.num--+"s重新获取验证码"
+						if(this.num<0){
+							this.value="获取短信验证码"
+							this.num=60
+							clearInterval(this.timer)
+							this.show=true	
+						}
+					},1000)
+				}
+			
 			}
 		}
 	}
@@ -59,61 +89,47 @@
 	.bjc{
 		background-image:url(../../assets/reset/test_cm.jpg);
 		background-size:100% ;
-		height: 1200px;
+		height: 700px;
 		display: flex;
 		justify-content: center;
-		
+		align-items: center;
 	}
-	#form{
-		margin-top: 150px;
-		width: 400px;
+	input{
+		outline: none;
 	}
-	h2{
-		text-align: center;
+	.bjc ul li{
+		line-height: 30px;
+		margin: 20px 0 ;
 	}
-	#form li{
-		height: 40px;
-		line-height: 40px;
+	.bjc ul li label{
+		width: 100px;
 	}
-	#form li>span{
-		display: inline-block;
-		width: 10px;
-		text-align: center;
+	.bjc ul .list input{
+		width: 224px;
+		height: 30px;
+		padding-left: 10px;
+	}
+	.tis{
 		color: red;
+		font-size: 12px;
+		margin-left: 100px;
 	}
-	#form li>label{
-		display: inline-block;
-		width: 80px;
-	}
-	#form li input{
-		height: 25px;
-		width: 250px;
-	}
-	#form li:last-child>input{
-		width: 120px;
-	}
-	#form li:last-child>.btn{
-		background: red;
+	.bjc ul li .btn{
+		width: 116px;
+		text-align: center;
+		height: 34px;
 		color: #fff;
+		background: red;
 		border: none;
-		height: 28px;
-		font-size: 14px;
 	}
-	#form  p{
-		margin: 20px 0;
+	.cl{
+		color: #3f9fff;
 	}
-	#form  p span{
-		color: darkturquoise;
-	}
-	.check{
-		margin-right: 5px;
-	}
-	.button{
+	.bt{
 		width: 200px;
-		height: 40px;
-		border: none;
-		background: red;
+		height: 50px;
 		color: #fff;
-		font-size: 14px;
+		background: red;
+		border: none;
 	}
 </style>

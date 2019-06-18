@@ -5,7 +5,7 @@
 				<div class="h_Left">收藏果酷</div>
 				<ul class="h_Right">
 					<li>
-						<a href="#">请登录</a>
+						<a @click="temp">请登录</a>
 					</li>
 					<li>
 						<a href="#">免费注册</a>
@@ -61,6 +61,11 @@
 	export default {
 		data() {
 			return {}
+		},
+		methods:{
+			temp(){
+				alert("<div><h3>11111</h3></div>")
+			}
 		}
 	}
 </script>
