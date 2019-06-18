@@ -1,0 +1,40 @@
+{
+   
+    "data": [
+        {
+            "recommend": "static/recommend_img1.jpg",
+            "group_list": [
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                },
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                },
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                },
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                },
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                },
+                {
+                    "img_url": "static/huifruits_21.jpg",
+                    "produ_name": "迷你果盒：应季流行",
+                    "pro_price": "￥6.00"
+                }
+            ]
+        }
+    ]
+}
