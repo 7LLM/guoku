@@ -5,8 +5,8 @@ import JoinIn from '@/pages/joinIn/joinIn'
 import Mall from '@/pages/mall/mall'
 import Shoppcar from '@/pages/mall/shoppcar'
 import Reset from '@/pages/Reset/resets'
-import Datatil from '@/components/datail'
-
+import Seach from '@/components/seach'
+import Order from '@/pages/mall/order'
 import	Login	from "@/components/login"
 Vue.use(Router)
 
@@ -22,8 +22,9 @@ export default new Router({
     {path:"/home",name:"Home",component:Home},
     {path:"/joinIn",name:"JoinIn",component:JoinIn},
     {path:"/Mall",name:"Mall",component:Mall},
-    {path:"/datail",name:"Mall",component:Datatil},
-    {path:"/login",component:Login}
+    {path:"/seach",name:"Mall",component:Seach},
+    {path:"/login",component:Login},
+    {path:"/order",name:"order",component:Order}
 
   ]
 })

@@ -5,7 +5,7 @@
 				<div class="h_Left">收藏果酷</div>
 				<ul class="h_Right">
 					<li>
-						<a @click="temp">请登录</a>
+						<a href="#">请登录</a>
 					</li>
 					<li>
 						<a href="#">免费注册</a>
@@ -28,17 +28,8 @@
 						<p class="fromI"><input type="text" name="" id="" placeholder="请输入要搜索的水果" /></p>
 						<div class="navTitle">
 							<ul>
-								<li>
-									<a href="#">HOME</a>
-								</li>
-								<li>
-									<a href="#">SALES</a>
-								</li>
-								<li>
-									<a href="#">ACTIVITY</a>
-								</li>
-								<li>
-									<a href="#">TASTE</a>
+								<li v-for="(item,index) in headarr" @mouseout="fn(item)" @mouseleave="!fn(item)" :class="{active:item.ishow}">
+									<a href="#">{{item.showNav}}</a>
 								</li>
 								<li>
 									<img src="../assets/logo/phone_icon.jpg"/>
@@ -49,7 +40,8 @@
 					</div>
 					<div class="nCart">
 						<i class="icon_cart"></i>
-						<a href="#">我的购物车</a>
+						<!--<a href="#">我的购物车</a>-->
+						<router-link to="/shoppcar">我的购物车</router-link>
 					</div>
 				</div>
 			</div>
@@ -60,11 +52,25 @@
 <script>
 	export default {
 		data() {
-			return {}
+			return {
+				headarr:[ 
+				    {English:"HOME",showNav:'HOME',chinese:"首页",ishow:false},
+				    {English:"SALES",showNav:'SALES',chinese:"闪购促销",ishow:false},
+				    {English:"ACTIVITY",showNav:'ACTIVITY',chinese:"最新活动",ishow:false},
+				    {English:"TASTE",showNav:'TASTE',chinese:"免费试吃",ishow:false}
+				]
+			}
 		},
 		methods:{
-			temp(){
-				alert("<div><h3>11111</h3></div>")
+			fn(item){
+//				console.log(item.showNav,item.showNav==item.English)
+				if(item.showNav==item.English){
+					item.showNav=item.chinese
+					item.ishow=true;
+				}else{
+					item.showNav=item.English;
+					item.ishow =false;
+				}
 			}
 		}
 	}
@@ -75,8 +81,8 @@
 	.headWarp {
 		width: 100%;
 		position: fixed;top: 0;
-		background: #fff;
-		z-index: 555;
+		z-index: 55;
+		background: #FFFFFF;
 		.header {
 			border-bottom: 1px solid #ccc;
 			height: 30px;
@@ -155,7 +161,6 @@
 	.nav {
 		height: 80px;
 		padding-bottom:10px;
-		/*border-bottom: 2px solid #ff3228;*/
 		.h_Nav {
 			margin: 0 auto;
 			width: 1200px;
@@ -181,7 +186,7 @@
 		position: relative;
 		.fromI {
 			width: 350px;
-			line-height: 22px;
+			height: 22px;
 			border-radius: 10px;
 			border: 1px solid #ccc;
 			padding: 0 5px;
@@ -191,6 +196,7 @@
 				width: 100%;
 				text-indent: .2em;
 				font-size: 12px;
+				line-height:16px;
 			}
 		}
 	}
@@ -210,12 +216,19 @@
 			margin-right: 100px;
 			align-items: center;
 			li{
-				padding: 0 13px;
+				width: 80px;
+				padding: 0 5px;
+				margin: 0 10px;
+				text-align: center;
 				a {
 					color: #333;
 				}
+				&.active a{
+					color: #FF0000;
+				}
 				&:nth-of-type(5){
-					padding-left: 173px;
+					width:150px;
+					margin-left: 173px;
 					>img{
 						vertical-align:-4px;
 					}

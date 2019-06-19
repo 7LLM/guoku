@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Header></Header>
-		<Footer></Footer>
+		<Shopitem></Shopitem>
 		<section class="shopping">
 			<div class="warp">
 				<div class="S_top">
@@ -25,21 +25,21 @@
 						<p>金额(元)</p>
 						<p>操作</p>
 					</div>
-					<div class="S_center_second">
+					<div class="S_center_second" v-for="(item,index) in arr" >
 						<form><input type="checkbox" name="" id="" value="全选" /></form>
 						<div class="s_Msg">
-							<!--<a href="#"><img src="../../assets/homeImg/huifruits_21.jpg"/></a>-->
-							<p><a href="#">万圣节主题手工鲜榨果汁</a></p>
+							<a href="#"><img src="../../assets/mallImg/huifruits_05.jpg"/></a>
+							<p><a href="#">{{item.title}}</a></p>
 						</div>
-						<p>25.00</p>
-						<p>25.00</p>
+						<p>{{item.sprice}}</p>
+						<p>{{item.dprice}}</p>
 						<p class="number">
-							<span class="jian">-</span>
-							<input type="text" name="" id="" value="1" />
-							<span class="jia">+</span>
+							<span @click="muist()">-</span>
+							<input type="text" name="" id="" value="1" v-model="count"/>
+							<span @click="add()">+</span>
 						</p>
-						<p><span>25.00</span></p>
-						<p>删除</p>
+						<p><span>{{item.zprice}}</span></p>
+						<p @click="del(index)">删除</p>
 					</div>
 					<div class="S_center_three">
 						<form action="#">
@@ -48,35 +48,65 @@
 						</form>
 						<p>已选商品<span>1</span>件</p>
 						<p>总计(不含运费)</p>
-						<p><span>￥25.00</span></p>
+						<p><span>￥{{toprice()}}</span></p>
 						<p>
-							<a href="#">结算</a>
+							<!--<a href="#"></a>-->
+							<router-link to="/order">结算</router-link>
 						</p>
 					</div>
 				</div>
 			</div>
 		</section>
+		<Footer></Footer>
 	</div>
 </template>
 
 <script>
 	import Header from '../../components/header'
 	import Footer from '../../components/footer'
+	import Shopitem from '../../components/shop_item'
 	export default {
+			data(){
+			return{
+				count:1,
+				arr:[
+				   {title:'万圣节主题手工鲜榨果汁',dprice:25.90,zprice:25.90,sprice:25.90},
+				   {title:'万圣节主题手工鲜榨果汁',dprice:24.90,zprice:24.90,sprice:24.90}
+				]
+			}
+		},
+		methods:{
+			add(){
+				this.count++;
+			},
+            muist(){
+				this.count--;
+				this.count=this.count<1?this.count+1:this.count
+			},
+			toprice(){
+				var total=0;
+				for (var i in this.arr) {
+					var item=this.arr[i];
+					total+=this.count*item.dprice
+					console.log(total)
+				}
+				return total
+			},
+			del(index){
+				this.arr.splice(index,1)
+			}
+		},
 		components: {
 			Header,
-			Footer
+			Footer,Shopitem
 		}
 	}
 </script>
 
 <style lang="less">
-	.shopping {
+.shopping {
 		width: 100%;
-		height: 350px;
-		position: absolute;
-		top: 121px;
-		border-top: 2px solid #616161;
+		margin-bottom: 400px;
 		.warp {
 			width: 1200px;
 			margin: 0 auto;
@@ -98,7 +128,7 @@
 			span {
 				display: inline-block;
 				margin-top: 35px;
-				padding: 0 28px;
+				padding: 0 35px;
 				color: #616161;
 				font-size: 12px;
 			}
@@ -175,7 +205,7 @@
 				height: 25px;
 				line-height: 25px;
 				width:100px;
-				background: #ccc;
+				background: #f2f2f2;
 				margin-top: 62px;
 				text-align: center;
 				display: flex;
@@ -183,7 +213,7 @@
 				align-items: center;
 				>input{
 					width:40px;
-					height:21px;
+					height:20px;
 					text-align: center;
 				}
 				>span{
@@ -213,7 +243,7 @@
 				}
 			}
 			p {
-				width: 200px;
+				/*width: 200px;*/
 				text-align: center;
 			}
 			p:last-of-type {
@@ -222,6 +252,9 @@
 				background: #FF3228;
 				a {
 					color: #fff;
+					display: block;
+					width: 100%;
+					height: 100%;
 				}
 			}
 			span {
